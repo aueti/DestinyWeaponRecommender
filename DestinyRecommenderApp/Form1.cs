@@ -17,5 +17,15 @@ namespace DestinyRecommenderApp
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Test();
+        }
+        private async void Test()
+        {
+            AccessDestinyAPI api = new AccessDestinyAPI();
+
+            richTextBox1.Text = await api.GetDestinyDataAsync() + " and " + await api.GetDestinyUserData();
+        }
     }
 }
